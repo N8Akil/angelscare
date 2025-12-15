@@ -43,5 +43,5 @@ export async function loginAction(formData: FormData): Promise<LoginResult> {
  */
 export async function logoutAction(): Promise<void> {
   await clearAuthCookie()
-  redirect('/admin/login')
+  redirect('/login')
 }

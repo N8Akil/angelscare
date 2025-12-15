@@ -41,20 +41,20 @@ const services = [
 
 export default function ServicesPage() {
     return (
-        <div className="flex flex-col min-h-screen bg-background">
+        <div className="flex flex-col min-h-screen bg-bg-base">
             {/* Hero Section */}
             <section className="relative py-20 md:py-28 overflow-hidden">
                 {/* Background gradient - soft and airy */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-accent/10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg-alt/30" />
 
                 <div className="container mx-auto relative z-10 px-6 md:px-12 text-center">
-                    <p className="text-secondary font-medium tracking-widest uppercase mb-4">
+                    <p className="text-royal font-medium tracking-widest uppercase mb-4">
                         The Care You Deserve
                     </p>
-                    <h1 className="font-display text-4xl md:text-6xl font-bold text-maroon-dark mb-6">
+                    <h1 className="font-display text-4xl md:text-6xl font-bold text-text-primary mb-6">
                         Our Services
                     </h1>
-                    <p className="text-xl text-maroon/80 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-xl text-text-muted max-w-2xl mx-auto leading-relaxed">
                         Every service is a chapter in your recovery story.
                         Tap any card below to learn more.
                     </p>
@@ -73,25 +73,25 @@ export default function ServicesPage() {
                                     href={`/services/${service.slug}`}
                                     className="group block"
                                 >
-                                    <WarmCard className="h-full p-8 transition-all duration-300 hover:scale-[1.02] hover:border-plum/20 cursor-pointer bg-white group-hover:shadow-lg border-transparent">
+                                    <WarmCard className="h-full p-8 transition-all duration-300 hover:scale-[1.02] cursor-pointer bg-liquid-blue/40 backdrop-blur-md border border-white/50 shadow-sm hover:shadow-xl hover:border-royal-blue/20 group-hover:bg-liquid-blue/60">
                                         {/* Icon */}
-                                        <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-6 group-hover:bg-plum/10 transition-colors border border-plum/5">
-                                            <Icon className="w-8 h-8 text-plum" />
+                                        <div className="w-16 h-16 rounded-full bg-white/60 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/50">
+                                            <Icon className="w-8 h-8 text-royal-blue" />
                                         </div>
 
                                         {/* Content */}
-                                        <h2 className="font-display text-2xl font-bold text-maroon-dark mb-2">
+                                        <h2 className="font-display text-2xl font-bold text-brand-navy mb-2">
                                             {service.title}
                                         </h2>
-                                        <p className="text-plum text-sm font-medium mb-4">
+                                        <p className="text-royal-blue text-sm font-bold uppercase tracking-wider mb-4">
                                             {service.subtitle}
                                         </p>
-                                        <p className="text-maroon/70 leading-relaxed">
+                                        <p className="text-text-primary leading-relaxed">
                                             {service.description}
                                         </p>
 
                                         {/* "Learn More" indicator */}
-                                        <div className="mt-6 pt-4 border-t border-plum/10 flex items-center text-plum font-semibold group-hover:translate-x-1 transition-transform font-sans">
+                                        <div className="mt-6 pt-4 border-t border-royal-blue/10 flex items-center text-royal-blue font-bold group-hover:translate-x-1 transition-transform font-sans">
                                             <span>Learn More</span>
                                             <span className="ml-2">&rarr;</span>
                                         </div>
@@ -104,32 +104,32 @@ export default function ServicesPage() {
             </section>
 
             {/* Lite Eligibility Section (New) */}
-            <section className="py-20 bg-accent/5 border-y border-plum/5">
+            <section className="py-20 bg-bg-alt/50 border-y border-royal/5">
                 <div className="container mx-auto px-6 md:px-12 text-center max-w-4xl">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-plum font-bold text-sm uppercase tracking-widest mb-6 border border-plum/10">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-surface rounded-full text-royal font-bold text-sm uppercase tracking-widest mb-6 border border-royal/10">
                         <CheckCircle2 className="w-4 h-4" />
                         <span>Coverage Check</span>
                     </div>
-                    <h2 className="font-display text-3xl md:text-4xl font-bold text-maroon-dark mb-6">
+                    <h2 className="font-display text-3xl md:text-4xl font-bold text-text-primary mb-6">
                         Often Covered by Medicare & Medicaid
                     </h2>
-                    <p className="text-xl text-maroon/80 mb-8">
+                    <p className="text-xl text-text-muted mb-8">
                         Many of our services, including skilled nursing and therapy, may be covered for eligible patients.
                         Our team handles the insurance verification for you.
                     </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto bg-white p-6 rounded-2xl border border-plum/5 shadow-sm">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto bg-surface p-6 rounded-2xl border border-royal/5 shadow-sm">
                         <div className="flex items-start gap-3">
-                            <div className="mt-1 w-2 h-2 rounded-full bg-maroon-dark" />
+                            <div className="mt-1 w-2 h-2 rounded-full bg-royal" />
                             <div>
-                                <strong className="block text-maroon-dark">Medicare</strong>
-                                <span className="text-sm text-maroon/70">Skilled Nursing, Therapy, Home Health Aide</span>
+                                <strong className="block text-text-primary">Medicare</strong>
+                                <span className="text-sm text-text-muted">Skilled Nursing, Therapy, Home Health Aide</span>
                             </div>
                         </div>
                         <div className="flex items-start gap-3">
-                            <div className="mt-1 w-2 h-2 rounded-full bg-secondary" />
+                            <div className="mt-1 w-2 h-2 rounded-full bg-champagne" />
                             <div>
-                                <strong className="block text-maroon-dark">Missouri Medicaid</strong>
-                                <span className="text-sm text-maroon/70">Consumer Directed Services (CDS), Personal Care</span>
+                                <strong className="block text-text-primary">Missouri Medicaid</strong>
+                                <span className="text-sm text-text-muted">Consumer Directed Services (CDS), Personal Care</span>
                             </div>
                         </div>
                     </div>
@@ -137,12 +137,12 @@ export default function ServicesPage() {
             </section>
 
             {/* Help Section - Big CTA for Seniors */}
-            <section className="py-20 bg-background">
+            <section className="py-20 bg-bg-base">
                 <div className="container mx-auto px-6 md:px-12 text-center">
-                    <h2 className="font-display text-3xl md:text-4xl font-bold text-maroon-dark mb-6">
+                    <h2 className="font-display text-3xl md:text-4xl font-bold text-text-primary mb-6">
                         Not Sure Where to Start?
                     </h2>
-                    <p className="text-xl text-maroon/70 max-w-xl mx-auto mb-10">
+                    <p className="text-xl text-text-muted max-w-xl mx-auto mb-10">
                         Our care coordinators are happy to help you find the right services.
                         No pressure, just answers.
                     </p>
@@ -156,7 +156,7 @@ export default function ServicesPage() {
                         <span>Call (314) 381-0321</span>
                     </Link>
 
-                    <p className="mt-6 text-maroon/60 text-sm">
+                    <p className="mt-6 text-text-muted text-sm">
                         Available Monday - Friday, 8am - 5pm
                     </p>
                 </div>

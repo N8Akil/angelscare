@@ -7,6 +7,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
+  --font-script: var(--font-script);
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
@@ -27,239 +29,237 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* Animations */
-  --animate-fade-in-up: fade-in-up 1s ease-out forwards;
-  --animate-enter-from-right: enter-from-right 0.25s ease;
-  --animate-enter-from-left: enter-from-left 0.25s ease;
-  --animate-exit-to-right: exit-to-right 0.25s ease;
-  --animate-exit-to-left: exit-to-left 0.25s ease;
-  --animate-scale-in-content: scale-in-content 0.2s ease;
-  --animate-scale-out-content: scale-out-content 0.2s ease;
+  /* ========================================
+     PALETTE B - Warm & Trusting (Rebrand)
+     ======================================== */
 
-  @keyframes fade-in-up {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
+  /* Background Colors */
+  --color-bg-base: var(--bg-base);
+  --color-bg-alt: var(--bg-alt);
+  --color-surface: var(--surface);
 
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  /* Brand Colors */
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-gold: var(--brand-gold);
+  --color-royal-blue: var(--royal-blue);
+  --color-liquid-blue: var(--liquid-blue);
 
-  @keyframes enter-from-right {
-    from {
-      opacity: 0;
-      transform: translateX(200px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes enter-from-left {
-    from {
-      opacity: 0;
-      transform: translateX(-200px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes exit-to-right {
-    from {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    to {
-      opacity: 0;
-      transform: translateX(200px);
-    }
-  }
-
-  @keyframes exit-to-left {
-    from {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    to {
-      opacity: 0;
-      transform: translateX(-200px);
-    }
-  }
-
-  @keyframes scale-in-content {
-    from {
-      opacity: 0;
-      transform: rotateX(-30deg) scale(0.9);
-    }
-
-    to {
-      opacity: 1;
-      transform: rotateX(0deg) scale(1);
-    }
-  }
-
-  @keyframes scale-out-content {
-    from {
-      opacity: 1;
-      transform: rotateX(0deg) scale(1);
-    }
-
-    to {
-      opacity: 0;
-      transform: rotateX(-10deg) scale(0.95);
-    }
-  }
+  /* Text Colors */
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
 }
 
 :root {
   --radius: 0.625rem;
 
-  /* Angelic & Caring Palette */
+  /* ========================================
+     PALETTE B - Warm & Trusting (Rebrand)
+     Midnight Navy, Muted Gold, Warm Beige
+     ======================================== */
 
-  /* "Angel Wing" White - Warm, soft off-white */
-  --background: #FDFBF7;
-  /* Deep Maroon - legible text, warm */
-  --foreground: #3A151C;
+  /* NEUTRALS - Background & Surface */
+  --bg-base: #F5F2EA;
+  /* Warm Beige - main page background */
+  --bg-alt: #EBE6DA;
+  /* Slightly darker beige for alternates */
+  --surface: #FFFFFF;
+  /* Pure White - content cards */
 
-  /* Card Backgrounds - Pure white to pop slightly against the off-white */
+  /* BRAND COLORS */
+  --brand-navy: #1B3B5F;
+  /* Midnight Navy - Trust, Primary Actions */
+  --brand-gold: #D4A373;
+  /* Muted Gold - Accents, Secondary */
+  --royal-blue: #4169E1;
+  /* Royal Blue - Vivid accents */
+  --liquid-blue: #E0F2FE;
+  /* Liquid Blue - Glass backgrounds */
+
+  /* TEXT COLORS */
+  --text-primary: #333333;
+  /* Charcoal Grey - softer than black */
+  --text-muted: #666666;
+  /* Medium Grey - secondary text */
+
+  /* SEMANTIC MAPPINGS for shadcn/ui compatibility */
+  --background: #F5F2EA;
+  --foreground: #333333;
+
   --card: #FFFFFF;
-  --card-foreground: #3A151C;
+  --card-foreground: #333333;
 
   --popover: #FFFFFF;
-  --popover-foreground: #3A151C;
+  --popover-foreground: #333333;
 
-  /* Primary CTA - Deep Plum/Maroon Gradient fallback */
-  --primary: #6B3A5B;
-  --primary-foreground: #FDFBF7;
+  /* Primary = Midnight Navy */
+  --primary: #1B3B5F;
+  --primary-foreground: #FFFFFF;
 
-  /* Secondary - Rose Gold / Champagne */
-  --secondary: #E8C84A;
-  --secondary-foreground: #3A151C;
+  /* Secondary = Muted Gold */
+  --secondary: #D4A373;
+  --secondary-foreground: #1B3B5F;
+  /* Navy text on Gold if solid, but usually outline */
 
-  /* Muted Accents - Lavender */
-  --muted: rgba(184, 169, 201, 0.2);
-  --muted-foreground: #6B3A5B;
+  /* Muted */
+  --muted: #EBE6DA;
+  --muted-foreground: #666666;
 
-  /* Accent Highlights */
-  --accent: #F5E6D3;
-  /* Very pale champagne */
-  --accent-foreground: #3A151C;
+  /* Accent */
+  --accent: #FDFBF7;
+  /* Very light warm wash */
+  --accent-foreground: #1B3B5F;
 
   --destructive: oklch(0.577 0.245 27.325);
 
-  --border: rgba(107, 58, 91, 0.1);
-  --input: rgba(107, 58, 91, 0.1);
-  --ring: #D4AF37;
+  /* Borders & Inputs */
+  --border: rgba(27, 59, 95, 0.12);
+  /* Navy at low opacity */
+  --input: rgba(27, 59, 95, 0.1);
+  --ring: #D4A373;
 
-  /* Extended Palette */
-  --maroon: #4A1C24;
-  --maroon-dark: #3A151C;
-  --plum: #6B3A5B;
-  --plum-light: #8B5A7B;
-  --lavender: #D4C9E0;
-  --champagne: #E8C84A;
-  --rose-gold: #E6B8B8;
-  --cream: #FDFBF7;
+  /* Extended Hooks */
+  --navy: #1B3B5F;
+  --gold: #D4A373;
+  --cream: #F5F2EA;
 
-  /* Chart Colors */
-  --chart-1: #6B3A5B;
-  --chart-2: #D4AF37;
-  --chart-3: #B8A9C9;
-  --chart-4: #4A1C24;
-  --chart-5: #E6B8B8;
+  /* Charts - Mapped to new palette */
+  --chart-1: #1B3B5F;
+  --chart-2: #D4A373;
+  --chart-3: #333333;
+  --chart-4: #4A6FA5;
+  /* Lighter Blue */
+  --chart-5: #E6B88A;
+  /* Lighter Gold */
 
-  --sidebar: #3A151C;
-  --sidebar-foreground: #FDFBF7;
-  --sidebar-primary: #D4AF37;
-  --sidebar-primary-foreground: #3A151C;
-  --sidebar-accent: rgba(107, 58, 91, 0.2);
-  --sidebar-accent-foreground: #FDFBF7;
-  --sidebar-border: rgba(107, 58, 91, 0.15);
-  --sidebar-ring: #D4AF37;
+  /* Sidebar */
+  --sidebar: #1B3B5F;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #D4A373;
+  --sidebar-primary-foreground: #1B3B5F;
+  --sidebar-accent: rgba(212, 163, 115, 0.15);
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #D4A373;
 }
 
 /*
-  Dark mode adjustments - keeping it rich and warm suitable for night mode
+  Dark mode - Deep Navy
 */
 .dark {
-  --background: #2A1015;
-  /* Very dark maroon/brown */
-  --foreground: #FDFBF7;
-  --card: rgba(107, 58, 91, 0.15);
-  --card-foreground: #FDFBF7;
-  --popover: #2A1015;
-  --popover-foreground: #FDFBF7;
-  --primary: #D4AF37;
-  --primary-foreground: #2A1015;
-  --secondary: #6B3A5B;
-  --secondary-foreground: #FDFBF7;
-  --muted: rgba(184, 169, 201, 0.15);
-  --muted-foreground: #D4C9E0;
-  --accent: #6B3A5B;
-  --accent-foreground: #FDFBF7;
+  --bg-base: #0B1A2F;
+  --bg-alt: #132442;
+  --surface: #1B3B5F;
+
+  --background: #0B1A2F;
+  --foreground: #F5F2EA;
+
+  --card: #1B3B5F;
+  --card-foreground: #F5F2EA;
+
+  --popover: #0B1A2F;
+  --popover-foreground: #F5F2EA;
+
+  --primary: #D4A373;
+  /* Gold as primary in dark mode for contrast */
+  --primary-foreground: #0B1A2F;
+
+  --secondary: #4A6FA5;
+  --secondary-foreground: #F5F2EA;
+
+  --muted: rgba(27, 59, 95, 0.4);
+  --muted-foreground: #B0B8C4;
+
+  --accent: #132442;
+  --accent-foreground: #F5F2EA;
+
   --destructive: oklch(0.704 0.191 22.216);
-  --border: rgba(184, 169, 201, 0.2);
-  --input: rgba(184, 169, 201, 0.15);
-  --ring: #D4AF37;
+
+  --border: rgba(212, 163, 115, 0.2);
+  --input: rgba(212, 163, 115, 0.15);
+  --ring: #D4A373;
+
+  --text-primary: #F5F2EA;
+  --text-muted: #B0B8C4;
 }
 
-/* Custom Utilities */
+/* ========================================
+   CUSTOM UTILITIES
+   ======================================== */
 
-@utility glass-panel {
-  backdrop-filter: blur(24px);
-  background-color: rgba(255, 255, 255, 0.4);
-  /* Lighter glass for off-white theme */
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 8px 32px 0 rgba(107, 58, 91, 0.1);
+@utility text-script {
+  @apply font-script;
 }
 
 @utility text-display {
-  @apply font-display tracking-tight text-[#3A151C];
+  @apply font-display tracking-tight;
+  color: var(--text-primary);
 }
 
-/* Updated Button Style: Sophisticated Gradient */
+@utility hero-overlay {
+  background: linear-gradient(to bottom, rgba(245, 242, 234, 0.9), rgba(245, 242, 234, 0.4));
+}
+
+.dark .hero-overlay {
+  background: linear-gradient(to bottom, rgba(11, 26, 47, 0.9), rgba(11, 26, 47, 0.4));
+}
+
+/* PRIMARY BUTTON - Midnight Navy, Matte */
 @utility btn-primary {
-  background-image: linear-gradient(135deg, #6B3A5B, #4A1C24);
-  color: #FDFBF7;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-weight: 500;
+  background-color: var(--brand-navy);
+  color: #FFFFFF;
+  border: 1px solid transparent;
+  font-weight: 600;
   letter-spacing: 0.02em;
   transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translate(0);
-  box-shadow: 0 4px 15px rgba(107, 58, 91, 0.2);
+  box-shadow: 0 4px 6px -1px rgba(27, 59, 95, 0.1), 0 2px 4px -1px rgba(27, 59, 95, 0.06);
 
   &:hover {
-    box-shadow: 0 8px 25px rgba(107, 58, 91, 0.35);
-    transform: translateY(-2px);
-    background-image: linear-gradient(135deg, #7D446A, #5C232E);
+    background-color: #152E4A;
+    /* Darker Navy */
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(27, 59, 95, 0.1), 0 4px 6px -2px rgba(27, 59, 95, 0.05);
   }
 
   &:active {
     transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(107, 58, 91, 0.2);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand-gold);
+    outline-offset: 2px;
   }
 }
 
+/* SECONDARY BUTTON - Transparent with Navy Border */
 @utility btn-secondary {
   background-color: transparent;
-  border: 1px solid #D4AF37;
-  color: #3A151C;
+  border: 2px solid var(--brand-navy);
+  color: var(--brand-navy);
+  font-weight: 600;
+  transition: all 300ms;
+
+  &:hover {
+    background-color: rgba(27, 59, 95, 0.05);
+    border-color: var(--brand-navy);
+    /* Keep Navy */
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand-gold);
+    outline-offset: 2px;
+  }
+}
+
+/* GHOST BUTTON */
+@utility btn-ghost {
+  background-color: transparent;
+  color: var(--brand-navy);
   font-weight: 500;
   transition: all 300ms;
 
   &:hover {
-    background-color: rgba(212, 175, 55, 0.1);
-    transform: translateY(-1px);
+    background-color: rgba(27, 59, 95, 0.08);
   }
 }
 
@@ -268,6 +268,7 @@
   from {
     transform: translateX(100%);
   }
+
   to {
     transform: translateX(0);
   }
@@ -277,6 +278,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -290,16 +292,22 @@
   animation: fade-in 0.3s ease-out forwards;
 }
 
+/* ========================================
+   BASE LAYER STYLES
+   ======================================== */
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-size: 20px;
-    font-weight: 300;
-    /* Outfit looks good slightly lighter */
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-size: 18px;
+    /* Accessible for seniors */
+    font-weight: 400;
+    line-height: 1.6;
   }
 
   h1,
@@ -308,6 +316,76 @@
   h4,
   h5,
   h6 {
-    @apply font-display font-medium text-[#3A151C];
+    @apply font-display font-bold;
+    color: var(--brand-navy);
   }
+
+  /* Ensure links have good contrast */
+  a {
+    color: var(--brand-navy);
+  }
+
+  a:hover {
+    color: #152E4A;
+    /* Darker Navy */
+  }
+
+  /* Form accessibility */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+    /* Prevent iOS zoom on focus */
+  }
+}
+
+/* ========================================
+   UTILITY CLASSES FOR NEW PALETTE
+   ======================================== */
+
+/* Background utilities */
+.bg-base {
+  background-color: var(--bg-base);
+}
+
+.bg-alt {
+  background-color: var(--bg-alt);
+}
+
+.bg-surface {
+  background-color: var(--surface);
+}
+
+.bg-navy {
+  background-color: var(--brand-navy);
+}
+
+.bg-gold {
+  background-color: var(--brand-gold);
+}
+
+.bg-gold\/10 {
+  background-color: rgba(212, 163, 115, 0.1);
+}
+
+/* Text utilities */
+.text-navy {
+  color: var(--brand-navy);
+}
+
+.text-gold {
+  color: var(--brand-gold);
+}
+
+.text-charcoal {
+  color: var(--text-primary);
+}
+
+/* Border utilities */
+.border-navy {
+  border-color: var(--brand-navy);
+}
+
+.border-gold {
+  border-color: var(--brand-gold);
 }

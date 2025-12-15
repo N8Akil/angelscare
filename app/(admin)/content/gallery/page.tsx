@@ -7,10 +7,15 @@ export default async function GalleryPage() {
     const { items } = await getGalleryItems(1, 100)
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-8">
             <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold tracking-tight">Gallery</h1>
-                <GalleryUploadButton />
+                <div>
+                    <h1 className="text-3xl font-display font-bold text-navy tracking-tight">Gallery</h1>
+                    <p className="text-text-muted mt-1">Showcase photos of your facilities and events.</p>
+                </div>
+                <div className="shadow-md shadow-navy/20 rounded-md">
+                    <GalleryUploadButton />
+                </div>
             </div>
 
             <GalleryGrid items={items} />

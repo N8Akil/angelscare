@@ -1,18 +1,25 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Outfit } from "next/font/google";
+import { Merriweather, Inter, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import { MobileCtaBar } from "@/components/layout/mobile-cta-bar";
 
-const cormorant = Cormorant_Garamond({
+const merriweather = Merriweather({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "700", "900"],
+  display: "swap",
 });
 
-const outfit = Outfit({
+const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  display: "swap",
+});
+
+const dancingScript = Dancing_Script({
+  variable: "--font-script",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cormorant.variable} ${outfit.variable} antialiased font-sans`}
+        className={`${merriweather.variable} ${inter.variable} ${dancingScript.variable} antialiased font-sans`}
       >
         {children}
         <MobileCtaBar />
