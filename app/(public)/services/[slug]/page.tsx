@@ -19,29 +19,29 @@ const EPISODES: Record<string, Episode> = {
     "home-health-care": {
         title: "Home Health Care",
         tagline: "Medical excellence, delivered to your door.",
-        description: "Health challenges shouldn't mean giving up the comfort of home. Our Registered Nurses (RNs) and licensed staff act as your primary medical team, coordinating directly with your doctor to manage chronic conditions, recovery after surgery, and complex medical needs. We bring the clinic to you, ensuring safety without the stress of a hospital visit.",
+        description: "Stay home while getting hospital-quality care. Our nurses work directly with your doctor to manage your health needs safely and comfortably.",
         heroGradient: "from-blue-900/60",
-        features: ["RN Nurse Visits", "Medication Management", "Wound & Ostomy Care", "Catheter Care", "Passive Range of Motion", "Chronic Disease Monitoring"],
+        features: ["RN Visits", "Medication Management"],
     },
     "consumer-directed-services": {
         title: "Consumer Directed Services",
         tagline: "Care from the people who know you best: Your Family.",
-        description: "You are already doing the work of caring for your loved one. You should be supported for it. This Missouri Medicaid program allows seniors to hire their own caregiver—including family members or friends (excluding spouses). We handle the paperwork and payroll so you can focus on what matters most: caring for family.",
-        disclosure: "Consumer Directed Services (CDS) is a Missouri Medicaid program. To qualify, you must meet Missouri's Medicaid eligibility and disability criteria. Contact us to verify your eligibility.",
+        description: "Hire a family member or friend as your paid caregiver through Missouri Medicaid. We handle all the paperwork and payroll—you focus on family.",
+        disclosure: "Consumer Directed Services (CDS) is a Missouri Medicaid program. Contact us to verify your eligibility.",
         heroGradient: "from-green-900/60",
         features: ["Hire Your Own Family/Friend", "Medicaid Approved Program", "Weekly Pay for Caregivers", "Free Training Provided", "No Experience Required", "Angel's Care Handles Payroll"],
     },
     "personal-care": {
         title: "Personal Care",
         tagline: "Dignity in every detail of daily life.",
-        description: "As we age, simple tasks like bathing or dressing can become unsafe or exhausting. Our Personal Care Aides provide respectful, hands-on assistance to help you maintain your independence and hygiene. We create a personalized safety plan that respects your routine and privacy.",
+        description: "Respectful help with bathing, dressing, and daily tasks. Our aides keep you safe and independent while respecting your privacy.",
         heroGradient: "from-purple-900/60",
         features: ["Bathing & Showering Assist", "Dressing & Grooming", "Mobility & Transfer Help", "Toileting & Incontinence Care", "Personal Hygiene Support", "Fall Prevention"],
     },
     "elderly-home-care": {
-        title: "Elderly Home Care",
+        title: "Elderly and Disabled Home Care",
         tagline: "A tidy home, a warm meal, and a friendly face.",
-        description: "Sometimes you don't need a nurse; you just need an extra pair of hands. Our Elderly Home Care services focus on keeping your home running smoothly. From cooking nutritious meals to keeping the house tidy, we reduce the burden of chores so you can enjoy your day. We also offer Respite Care to give family caregivers a well-deserved break.",
+        description: "Help with cooking, cleaning, errands, and companionship. We also offer Respite Care so family caregivers can take a break.",
         heroGradient: "from-amber-900/60",
         features: ["Light Housekeeping & Laundry", "Meal Preparation", "Companionship", "Shopping & Errands", "Respite Care (Family Relief)", "Medication Reminders"],
     },
@@ -98,7 +98,7 @@ export default async function ServiceEpisodePage({ params }: { params: Promise<{
                     <h1 className="text-display text-5xl md:text-7xl font-bold tracking-tight drop-shadow-2xl text-white">
                         {episode.title}
                     </h1>
-                    <p className="text-xl md:text-3xl text-primary font-medium italic tracking-wide drop-shadow-lg font-display">
+                    <p className="text-xl md:text-3xl text-white/90 font-medium italic tracking-wide drop-shadow-lg font-display">
                         {episode.tagline}
                     </p>
                 </div>

@@ -115,7 +115,17 @@ export default function AdminLayout({
                             </nav>
                         </SheetContent>
                     </Sheet>
-                    <div className="flex-1 text-lg font-semibold text-navy">Angel&apos;s Care</div>
+                    <div className="flex-1 flex items-center gap-2">
+                        <img
+                            src="/ACLOGO.png"
+                            alt="Angel's Care"
+                            className="h-8 w-auto flex-shrink-0 object-contain"
+                        />
+                        <div className="flex flex-col">
+                            <span className="font-display text-base font-bold text-navy leading-tight">Angel&apos;s Care</span>
+                            <span className="font-sans font-thin text-xs text-navy/70 tracking-wide">Home Health</span>
+                        </div>
+                    </div>
                 </header>
 
                 {/* Desktop Sidebar */}
@@ -123,10 +133,15 @@ export default function AdminLayout({
                     {/* Logo/Brand */}
                     <div className="flex h-16 items-center border-b px-6">
                         <Link href="/dashboard" className="flex items-center gap-3">
-                            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy text-white font-bold text-sm">
-                                AC
+                            <img
+                                src="/ACLOGO.png"
+                                alt="Angel's Care Home Health"
+                                className="h-10 w-auto flex-shrink-0 object-contain"
+                            />
+                            <div className="flex flex-col">
+                                <span className="font-display text-base font-bold text-navy leading-tight">Angel&apos;s Care</span>
+                                <span className="font-sans font-thin text-xs text-navy/70 tracking-wide">Home Health</span>
                             </div>
-                            <span className="font-semibold text-navy">Angel&apos;s Care</span>
                         </Link>
                     </div>
 

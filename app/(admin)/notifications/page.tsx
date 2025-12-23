@@ -1,12 +1,15 @@
 import Link from "next/link"
-import { Send, History, Bell, Users, Mail, MessageSquare, AlertCircle, CheckCircle2 } from "lucide-react"
+import { Send, History, Bell, Users, Mail, MessageSquare, AlertCircle, CheckCircle2, Settings } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { getQueueStats } from "@/lib/actions/notifications"
+import { getQueueStats, getNotificationProviderStatus } from "@/lib/actions/notifications"
+
+export const dynamic = 'force-dynamic'
 
 export default async function NotificationsPage() {
     const stats = await getQueueStats()
+    const providerStatus = await getNotificationProviderStatus()
 
     return (
         <div className="space-y-8">
@@ -143,22 +146,69 @@ export default async function NotificationsPage() {
             </div>
 
             {/* Provider Status Info */}
-            <div className="rounded-xl bg-navy/5 border border-navy/10 p-6 flex flex-col md:flex-row items-center justify-between gap-4">
-                <div className="space-y-1">
-                    <h3 className="font-bold text-navy flex items-center gap-2">
-                        <Users className="h-4 w-4" />
-                        System Configuration
-                    </h3>
-                    <p className="text-sm text-text-muted">
-                        Ensure your email (SendGrid/SMTP) and SMS (Twilio) providers are correctly configured in environment variables.
-                    </p>
-                </div>
-                <div className="flex items-center gap-3">
-                    <span className="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
-                        System Active
-                    </span>
-                </div>
-            </div>
+            <Card className="border-none shadow-md shadow-navy/5">
+                <CardHeader className="pb-3 border-b border-navy/5">
+                    <CardTitle className="flex items-center gap-2 text-navy">
+                        <Settings className="h-5 w-5" />
+                        Provider Configuration
+                    </CardTitle>
+                    <CardDescription>
+                        Status of your email and SMS delivery providers
+                    </CardDescription>
+                </CardHeader>
+                <CardContent className="pt-6">
+                    <div className="grid gap-4 sm:grid-cols-2">
+                        {/* Email Provider */}
+                        <div className="flex items-center gap-4 p-4 rounded-xl bg-bg-base/50 border border-navy/5">
+                            <div className={`p-3 rounded-xl ${providerStatus.email.configured ? 'bg-green-100' : 'bg-amber-100'}`}>
+                                <Mail className={`h-6 w-6 ${providerStatus.email.configured ? 'text-green-600' : 'text-amber-600'}`} />
+                            </div>
+                            <div className="flex-1">
+                                <p className="font-semibold text-navy">Email</p>
+                                <p className="text-sm text-text-muted">
+                                    Provider: <span className="font-medium text-navy">{providerStatus.email.provider.toUpperCase()}</span>
+                                </p>
+                            </div>
+                            <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold ${
+                                providerStatus.email.configured
+                                    ? 'bg-green-100 text-green-800'
+                                    : 'bg-amber-100 text-amber-800'
+                            }`}>
+                                {providerStatus.email.configured ? 'Active' : 'Mock Mode'}
+                            </span>
+                        </div>
+
+                        {/* SMS Provider */}
+                        <div className="flex items-center gap-4 p-4 rounded-xl bg-bg-base/50 border border-navy/5">
+                            <div className={`p-3 rounded-xl ${providerStatus.sms.configured ? 'bg-green-100' : 'bg-amber-100'}`}>
+                                <MessageSquare className={`h-6 w-6 ${providerStatus.sms.configured ? 'text-green-600' : 'text-amber-600'}`} />
+                            </div>
+                            <div className="flex-1">
+                                <p className="font-semibold text-navy">SMS</p>
+                                <p className="text-sm text-text-muted">
+                                    Provider: <span className="font-medium text-navy">{providerStatus.sms.provider.toUpperCase()}</span>
+                                </p>
+                            </div>
+                            <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold ${
+                                providerStatus.sms.configured
+                                    ? 'bg-green-100 text-green-800'
+                                    : 'bg-amber-100 text-amber-800'
+                            }`}>
+                                {providerStatus.sms.configured ? 'Active' : 'Mock Mode'}
+                            </span>
+                        </div>
+                    </div>
+
+                    {(!providerStatus.email.configured || !providerStatus.sms.configured) && (
+                        <div className="mt-4 p-4 rounded-lg bg-amber-50 border border-amber-200">
+                            <p className="text-sm text-amber-800">
+                                <strong>Mock Mode:</strong> Notifications are being logged to console but not actually sent.
+                                Configure your provider credentials in <code className="bg-amber-100 px-1 rounded">.env.local</code> to enable real delivery.
+                            </p>
+                        </div>
+                    )}
+                </CardContent>
+            </Card>
         </div>
     )
 }

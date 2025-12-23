@@ -68,11 +68,16 @@ export default function AboutPage() {
 
                     {/* Right: The Promise (Mission) */}
                     <div className="space-y-8">
-                        <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl bg-[#E5E5E5]">
-                            {/* Placeholder for Team Photo */}
-                            <div className="absolute inset-0 flex items-center justify-center text-text-muted/30 font-display text-lg">
-                                [Team Photo: Smiling Staff in Florissant Office]
-                            </div>
+                        <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl">
+                            <Image
+                                src="/images/team-photo.png"
+                                alt="Angel's Care Home Health Team"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
+                            {/* Subtle overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/20 to-transparent" />
                         </div>
 
                         <div className="space-y-4">
@@ -99,6 +104,96 @@ export default function AboutPage() {
                         </div>
                     </div>
 
+                </div>
+            </section>
+
+            {/* Meet Our Caregivers Section */}
+            <section className="py-20 bg-white border-y border-navy/5">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-12">
+                        <h2 className="text-display text-4xl md:text-5xl font-bold text-brand-navy mb-4">
+                            Meet Our <span className="text-brand-gold italic">Caregivers</span>
+                        </h2>
+                        <p className="text-xl text-text-muted max-w-2xl mx-auto">
+                            Our team brings decades of combined experience and a genuine passion for helping families thrive.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        {/* Team Photo 1 */}
+                        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl group">
+                            <Image
+                                src="/images/team-photo.png"
+                                alt="Angel's Care nursing staff"
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 to-transparent" />
+                            <div className="absolute bottom-4 left-4 right-4">
+                                <p className="text-white font-display font-bold text-lg">Our Nursing Team</p>
+                                <p className="text-white/80 text-sm">Skilled, compassionate, dedicated</p>
+                            </div>
+                        </div>
+
+                        {/* Team Photo 2 */}
+                        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl group">
+                            <Image
+                                src="/images/team=photo-2.png"
+                                alt="Angel's Care home health aides"
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 to-transparent" />
+                            <div className="absolute bottom-4 left-4 right-4">
+                                <p className="text-white font-display font-bold text-lg">Home Health Aides</p>
+                                <p className="text-white/80 text-sm">Care with heart, every day</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Stats Row */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 max-w-4xl mx-auto">
+                        <div className="text-center p-6 bg-bg-base rounded-xl">
+                            <p className="text-4xl font-display font-bold text-brand-navy">20+</p>
+                            <p className="text-text-muted text-sm mt-1">Years of Service</p>
+                        </div>
+                        <div className="text-center p-6 bg-bg-base rounded-xl">
+                            <p className="text-4xl font-display font-bold text-brand-gold">500+</p>
+                            <p className="text-text-muted text-sm mt-1">Families Served</p>
+                        </div>
+                        <div className="text-center p-6 bg-bg-base rounded-xl">
+                            <p className="text-4xl font-display font-bold text-brand-navy">24/7</p>
+                            <p className="text-text-muted text-sm mt-1">Care Available</p>
+                        </div>
+                        <div className="text-center p-6 bg-bg-base rounded-xl">
+                            <p className="text-4xl font-display font-bold text-brand-gold">A+</p>
+                            <p className="text-text-muted text-sm mt-1">BBB Rating</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Our Promise Section */}
+            <section className="py-20 bg-bg-base">
+                <div className="container mx-auto px-6 max-w-4xl text-center">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-gold/10 rounded-full text-brand-gold font-bold text-sm uppercase tracking-widest mb-6 border border-brand-gold/20">
+                        <Heart className="w-4 h-4" />
+                        <span>Our Promise</span>
+                    </div>
+                    <h2 className="text-display text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+                        &ldquo;We treat your loved ones like our own family.&rdquo;
+                    </h2>
+                    <p className="text-xl text-text-muted leading-relaxed mb-8">
+                        When you choose Angel&apos;s Care, you&apos;re not just getting a service—you&apos;re gaining a partner in your family&apos;s health journey.
+                        We bring the same care, patience, and dedication we&apos;d want for our own parents and grandparents.
+                    </p>
+                    <Link
+                        href="/contact"
+                        className="inline-flex items-center gap-2 btn-primary px-8 py-4 rounded-full text-lg shadow-lg hover:scale-105 transition-transform"
+                    >
+                        <Phone className="w-5 h-5" />
+                        <span>Start Your Care Journey</span>
+                    </Link>
                 </div>
             </section>
         </main>

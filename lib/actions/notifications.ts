@@ -246,6 +246,13 @@ export async function composeNotification(data: {
         ]
       )
 
+      // Trigger worker to process the queue immediately after composing
+      // Use setTimeout to ensure the transaction is committed first
+      setTimeout(async () => {
+        console.log('[Notification] Auto-triggering worker after compose')
+        await processNotificationQueue(recipients.rows.length + 5) // Process batch including new items
+      }, 500)
+
       return { success: true, queuedCount: recipients.rows.length }
     })
   } catch (error) {

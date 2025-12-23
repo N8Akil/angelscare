@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Phone, Stethoscope, Users, Heart, Home, ArrowRight, CheckCircle2 } from "lucide-react"
 import { WarmCard } from "@/components/ui/warm-card"
 import { Button } from "@/components/ui/button"
@@ -13,8 +14,9 @@ const services = [
         slug: "home-health-care",
         title: "Home Health Care",
         subtitle: "Medical excellence, delivered to your door.",
-        description: "RN visits, medication management, wound & ostomy care, catheter care, and chronic disease monitoring—coordinated with your doctor.",
+        description: "RN visits and medication management—coordinated with your doctor.",
         icon: Stethoscope,
+        image: "/images/home-health-care.png",
     },
     {
         slug: "consumer-directed-services",
@@ -22,6 +24,7 @@ const services = [
         subtitle: "Care from the people who know you best.",
         description: "Missouri Medicaid program letting you hire family or friends as caregivers. We handle payroll and paperwork—you focus on family.",
         icon: Users,
+        image: "/images/consumer-directed-services.png",
     },
     {
         slug: "personal-care",
@@ -29,13 +32,15 @@ const services = [
         subtitle: "Dignity in every detail of daily life.",
         description: "Respectful assistance with bathing, dressing, grooming, mobility, and personal hygiene. Personalized safety plans.",
         icon: Heart,
+        image: "/images/personal-care.png",
     },
     {
         slug: "elderly-home-care",
-        title: "Elderly Home Care",
+        title: "Elderly and Disabled Home Care",
         subtitle: "A tidy home, a warm meal, and a friendly face.",
         description: "Light housekeeping, meal prep, companionship, errands, and respite care so family caregivers can take a break.",
         icon: Home,
+        image: "/images/elderly-home-care.png",
     },
 ]
 
@@ -73,29 +78,43 @@ export default function ServicesPage() {
                                     href={`/services/${service.slug}`}
                                     className="group block"
                                 >
-                                    <WarmCard className="h-full p-8 transition-all duration-300 hover:scale-[1.02] cursor-pointer bg-liquid-blue/40 backdrop-blur-md border border-white/50 shadow-sm hover:shadow-xl hover:border-royal-blue/20 group-hover:bg-liquid-blue/60">
-                                        {/* Icon */}
-                                        <div className="w-16 h-16 rounded-full bg-white/60 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/50">
-                                            <Icon className="w-8 h-8 text-royal-blue" />
+                                    <div className="h-full overflow-hidden rounded-2xl bg-white border border-brand-navy/10 shadow-lg hover:shadow-xl hover:border-brand-gold/40 transition-all duration-500 hover:scale-[1.02]">
+                                        {/* Image Section */}
+                                        <div className="relative h-52 overflow-hidden">
+                                            <Image
+                                                src={service.image}
+                                                alt={service.title}
+                                                fill
+                                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                            />
+                                            {/* Gradient overlay */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/50 via-transparent to-transparent" />
+
+                                            {/* Floating Icon Badge */}
+                                            <div className="absolute bottom-4 left-4 p-3 rounded-xl bg-white/95 backdrop-blur-sm shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                                <Icon className="w-7 h-7 text-brand-gold" />
+                                            </div>
                                         </div>
 
-                                        {/* Content */}
-                                        <h2 className="font-display text-2xl font-bold text-brand-navy mb-2">
-                                            {service.title}
-                                        </h2>
-                                        <p className="text-royal-blue text-sm font-bold uppercase tracking-wider mb-4">
-                                            {service.subtitle}
-                                        </p>
-                                        <p className="text-text-primary leading-relaxed">
-                                            {service.description}
-                                        </p>
+                                        {/* Content Section */}
+                                        <div className="p-6">
+                                            <p className="text-brand-gold text-sm font-bold uppercase tracking-wider mb-2">
+                                                {service.subtitle}
+                                            </p>
+                                            <h2 className="font-display text-2xl font-bold text-brand-navy mb-3">
+                                                {service.title}
+                                            </h2>
+                                            <p className="text-text-muted leading-relaxed">
+                                                {service.description}
+                                            </p>
 
-                                        {/* "Learn More" indicator */}
-                                        <div className="mt-6 pt-4 border-t border-royal-blue/10 flex items-center text-royal-blue font-bold group-hover:translate-x-1 transition-transform font-sans">
-                                            <span>Learn More</span>
-                                            <span className="ml-2">&rarr;</span>
+                                            {/* "Learn More" indicator */}
+                                            <div className="mt-5 pt-4 border-t border-brand-navy/10 flex items-center text-brand-navy font-semibold group-hover:text-brand-gold group-hover:translate-x-1 transition-all">
+                                                <span>Learn More</span>
+                                                <ArrowRight className="w-4 h-4 ml-2" />
+                                            </div>
                                         </div>
-                                    </WarmCard>
+                                    </div>
                                 </Link>
                             )
                         })}

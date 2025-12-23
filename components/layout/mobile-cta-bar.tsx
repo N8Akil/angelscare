@@ -22,19 +22,19 @@ export function MobileCtaBar() {
             <div className="absolute inset-0 bg-[#0F172A]/95 backdrop-blur-md border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.4)]" />
 
             <div className="relative flex items-center justify-between gap-3 p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
-                {/* Primary Action: Call */}
+                {/* Primary Action: Call (icon only with pulse) */}
                 <Link
                     href="tel:3143810321"
                     className={cn(
-                        "flex-1 flex items-center justify-center gap-2",
-                        "bg-gradient-to-r from-primary to-[#C5A028]",
-                        "text-[#0F172A] font-bold text-base h-12 rounded-lg",
-                        "shadow-[0_0_15px_rgba(212,175,55,0.3)]",
+                        "flex items-center justify-center",
+                        "w-12 h-12 rounded-full",
+                        "bg-brand-gold/50 text-brand-navy",
+                        "animate-pulse-glow",
                         "active:scale-95 transition-transform"
                     )}
+                    aria-label="Call Angel's Care"
                 >
-                    <Phone className="w-5 h-5 fill-[#0F172A]" />
-                    <span>Call Now</span>
+                    <Phone className="w-5 h-5 fill-current" />
                 </Link>
 
                 {/* Secondary Action: Request Care */}
@@ -47,7 +47,7 @@ export function MobileCtaBar() {
                         "active:bg-white/20 active:scale-95 transition-all"
                     )}
                 >
-                    <CalendarHeart className="w-5 h-5 text-primary" />
+                    <CalendarHeart className="w-5 h-5 text-white" />
                     <span>Get Care</span>
                 </Link>
             </div>

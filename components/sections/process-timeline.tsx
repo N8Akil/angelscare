@@ -10,12 +10,12 @@ const steps = [
     },
     {
         title: "2. The First Visit",
-        copy: "Within 24-48 hours, a registered nurse arrives at your door. We assess your needs, check your home safety, and listen to your story.",
+        copy: "Within approximately 2 weeks, the Division of Health & Senior Services arrives at your door. We assess your needs, check your home safety, and listen to your story.",
         icon: Home,
     },
     {
         title: "3. Your Care Plan",
-        copy: "We write a custom script for your recovery. Nursing, therapy, and aid visits are scheduled around your life, not ours.",
+        copy: "We write a custom script for your care. Nursing visits are scheduled around your life, not ours.",
         icon: ClipboardCheck,
     },
     {
@@ -87,15 +87,11 @@ export function ProcessTimeline() {
                                     <span className="font-bold tracking-widest uppercase text-sm">Eligibility Verified</span>
                                 </div>
                                 <h3 className="text-3xl md:text-4xl font-display font-bold text-text-primary">
-                                    The Best Part? Often Covered by Medicare & Medicaid.
+                                    The Best Part? Often Covered by Medicaid.
                                 </h3>
                                 <p className="text-lg text-text-muted">
-                                    Medicare often covers allowable charges for qualified home health services for eligible patients.
-                                    <span className="text-royal font-semibold block mt-1">Coverage varies. We help verify your benefits.</span>
-                                </p>
-                                <p className="text-base text-text-muted mt-4 border-t border-royal/10 pt-4">
-                                    <strong className="text-text-primary">Medicare</strong> covers skilled nursing care for those who qualify.
-                                    <strong className="text-text-primary ml-1">Medicaid</strong> covers personal care and CDS support for eligible Missourians.
+                                    For eligible Missourians, Medicaid typically covers all home health care services—including personal care, skilled nursing, and Consumer Directed Services (CDS) support.
+                                    <span className="text-royal font-semibold block mt-1">We help verify your benefits at no cost.</span>
                                 </p>
                                 <p className="text-sm text-royal mt-3 italic">
                                     Proudly serving families in the St. Louis metro area, Jefferson County, and St. Charles County.

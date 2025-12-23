@@ -86,19 +86,16 @@ async function sendEmailViaSendGrid(options: EmailOptions): Promise<EmailResult>
 }
 
 /**
- * SMTP Email Provider (via nodemailer-style fetch to external SMTP relay)
- * For simplicity, using a lightweight fetch-based approach
+ * SMTP Email Provider (via nodemailer)
  * Requires: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, EMAIL_FROM
  */
 async function sendEmailViaSMTP(options: EmailOptions): Promise<EmailResult> {
-  // For SMTP, we'll use a simple approach via an SMTP-to-HTTP bridge
-  // Or integrate nodemailer if needed
-
   const smtpHost = process.env.SMTP_HOST
   const smtpPort = process.env.SMTP_PORT || '587'
   const smtpUser = process.env.SMTP_USER
   const smtpPass = process.env.SMTP_PASS
   const fromEmail = process.env.EMAIL_FROM || 'noreply@angelscare-homehealth.com'
+  const fromName = process.env.EMAIL_FROM_NAME || "Angel's Care Home Health"
 
   if (!smtpHost || !smtpUser || !smtpPass) {
     // Fallback to mock if SMTP not configured
@@ -107,14 +104,36 @@ async function sendEmailViaSMTP(options: EmailOptions): Promise<EmailResult> {
     return { success: true, messageId: `mock-${Date.now()}` }
   }
 
-  // For real SMTP, you'd use nodemailer here
-  // Since we want to keep dependencies minimal, log the intent
-  console.log(`[Email SMTP] Would send to ${options.to} via ${smtpHost}:${smtpPort}`)
-  console.log(`[Email SMTP] From: ${fromEmail}, Subject: ${options.subject}`)
+  try {
+    // Dynamic import nodemailer to avoid bundling issues
+    const nodemailer = await import('nodemailer')
 
-  // TODO: Integrate nodemailer if SMTP is the preferred method
-  // For now, mark as sent (would need npm install nodemailer)
-  return { success: true, messageId: `smtp-${Date.now()}` }
+    const transporter = nodemailer.default.createTransport({
+      host: smtpHost,
+      port: parseInt(smtpPort),
+      secure: smtpPort === '465', // true for 465, false for other ports
+      auth: {
+        user: smtpUser,
+        pass: smtpPass,
+      },
+    })
+
+    const mailOptions = {
+      from: `"${fromName}" <${fromEmail}>`,
+      to: options.to,
+      subject: options.subject,
+      text: options.body,
+      ...(options.html && { html: options.html }),
+    }
+
+    const info = await transporter.sendMail(mailOptions)
+    console.log(`[Email SMTP] Sent to ${options.to}, messageId: ${info.messageId}`)
+    return { success: true, messageId: info.messageId }
+  } catch (error) {
+    const errorMsg = error instanceof Error ? error.message : 'Unknown SMTP error'
+    console.error(`[Email SMTP] Error sending to ${options.to}: ${errorMsg}`)
+    return { success: false, error: errorMsg }
+  }
 }
 
 

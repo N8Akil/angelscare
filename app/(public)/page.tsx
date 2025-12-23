@@ -1,12 +1,11 @@
-import { GlassCard } from "@/components/ui/glass-card";
-import { Phone, Check, ArrowRight, ShieldCheck } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { ServicesEnsemble } from "@/components/sections/services-ensemble";
 import { ProcessTimeline } from "@/components/sections/process-timeline";
 import { ContactFinale } from "@/components/sections/contact-finale";
 import { TestimonialCarousel } from "@/components/sections/testimonial-carousel";
 import { TrustBadges } from "@/components/ui/trust-badges";
+import { HeroImageCarousel } from "@/components/ui/hero-image-carousel";
 
 export default function Home() {
   return (
@@ -25,7 +24,7 @@ export default function Home() {
         <div className="absolute left-0 top-0 bottom-0 w-2 md:w-3 bg-navy z-10" />
 
         {/* Content Container */}
-        <div className="relative z-20 container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center h-full pt-20">
+        <div className="relative z-20 container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center h-full pt-32 md:pt-20">
           <div className="w-full md:w-2/3 lg:w-1/2 space-y-8 animate-fade-in-up">
             {/* Headline Group */}
             <div className="space-y-4">
@@ -62,33 +61,15 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Side / Spacer for visual balance in cinematic 2-column layout */}
-          <div className="hidden md:block w-1/3 lg:w-1/2 h-full" />
+          {/* Right Side - Hero Image Carousel */}
+          <div className="hidden md:flex w-1/3 lg:w-1/2 h-[500px] lg:h-[600px] items-center justify-center pl-8">
+            <HeroImageCarousel />
+          </div>
         </div>
 
         {/* Bottom fade for smooth transition to next section */}
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-bg-base to-transparent z-20" />
       </main>
-
-      {/* Trust Signals Section */}
-      <section className="py-12 bg-white border-b border-navy/5">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 items-center text-text-muted">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="h-6 w-6 text-navy" />
-              <span className="font-semibold">Medicare Certified</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="h-6 w-6 text-navy" />
-              <span className="font-semibold">BBB A+ Rating</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="h-6 w-6 text-navy" />
-              <span className="font-semibold">Licensed & Bonded</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Services Ensemble Section */}
       <ServicesEnsemble />
